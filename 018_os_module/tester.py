@@ -2,7 +2,6 @@ import os
 import time
 
 #CURRENT WORKING DIRECTORY
-# print(os.getcwd())
 # os.chdir('../')
 # print(os.getcwd())  # Печатает текущую рабочую директорию
 # print(os.listdir())  # Печатает все файлы и папки в текущей директории
@@ -23,7 +22,7 @@ import time
 #     print('Directories: ', dirnames)
 #     print('Files: ', filenames)
 
-# print(os.environ.get('database_password')) ##change to your passqord
+# print(os.environ.get('database_password')) ##change to your passwoord
 
 # print(os.environ.get('HOMEPATH') + r'\text.py')
 # print(os.path.join(os.environ.get('HOMEPATH'), 'text.py'))

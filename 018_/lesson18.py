@@ -30,10 +30,13 @@ print(mycursor) #(nothing executed)
 # mycursor.execute(sql_formula)
 
 # sql_formula = 'INSERT INTO student (name, age) VALUES (%s, %s)'
-# # user = ('Sarah', 40)
-# # mycursor.execute(sql_formula, user)
+
+# user = ('Sarah', 40)
+# mycursor.execute(sql_formula, user)
+
 # users = [('Samanta', 29), ('Mary', 31), ('Serjo', 45)]
 # mycursor.executemany(sql_formula, users)
+
 # mydb.commit()
 
 mycursor.execute('SELECT * FROM actor;')
