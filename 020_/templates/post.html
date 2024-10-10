@@ -1,0 +1,17 @@
+{% extends 'base.html' %} <!-- Расширяем базовый шаблон 'base.html' -->
+{% block title %} <!-- Блок для установки заголовка страницы -->
+    Flask blog create post <!-- Заголовок страницы для создания поста -->
+{% endblock %}
+{% block content %} <!-- Начало блока контента страницы -->
+    <form class="py-5" method="post"> <!-- Форма с методом POST и отступом по вертикали -->
+    <div class="mb-3"> <!-- Контейнер с отступом внизу -->
+    <label for="post-title" class="form-label">Post title</label> <!-- Метка для поля ввода заголовка поста -->
+    <input type="text" class="form-control" id="post-title" name="post-title" placeholder="Post title"> <!-- Поле ввода заголовка поста -->
+    </div>
+    <div class="mb-3"> <!-- Контейнер с отступом внизу -->
+    <label for="post-content" class="form-label">Post content</label> <!-- Метка для текстового поля ввода содержимого поста -->
+    <textarea class="form-control" id="post-content" name="post-content" rows="3"></textarea> <!-- Текстовое поле для ввода содержимого поста -->
+    </div>
+    <input type="submit" class="btn btn-primary" value="Send post"> <!-- Кнопка для отправки формы -->
+    </form>
+{% endblock %} <!-- Конец блока контента -->

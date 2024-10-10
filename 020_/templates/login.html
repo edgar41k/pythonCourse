@@ -1,23 +1,23 @@
-{% extends 'base.html' %}
-{% block title %}
-    Login page
+{% extends 'base.html' %} <!-- Расширяем базовый шаблон 'base.html' -->
+{% block title %} <!-- Блок для установки заголовка страницы -->
+    Login page <!-- Заголовок страницы для страницы входа -->
 {% endblock %}
-{% block content %}
-    <div class="container mt-5">
-    <form method="post">
-        <div class="row mb-3">
-        <label for="user-name" class="col-sm-2 col-form-label">User Name</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="user-name" name="user-name">
-        </div>
-        </div>
-        <div class="row mb-3">
-        <label for="user-pass" class="col-sm-2 col-form-label">Password</label>
-        <div class="col-sm-10">
-            <input type="password" class="form-control" id="user-pass" name="user-pass">
-        </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Sign in</button>
+{% block content %} <!-- Начало блока контента страницы -->
+    <div class="container mt-5"> <!-- Контейнер с верхним отступом -->
+    <form method="post"> <!-- Форма с методом POST для отправки данных -->
+    <div class="row mb-3"> <!-- Строка с отступом внизу -->
+    <label for="user-name" class="col-sm-2 col-form-label">User Name</label> <!-- Метка для поля ввода имени пользователя -->
+    <div class="col-sm-10"> <!-- Колонка для поля ввода -->
+    <input type="text" class="form-control" id="user-name" name="user-name"> <!-- Поле ввода имени пользователя -->
+    </div>
+    </div>
+    <div class="row mb-3"> <!-- Строка с отступом внизу -->
+    <label for="user-pass" class="col-sm-2 col-form-label">Password</label> <!-- Метка для поля ввода пароля -->
+    <div class="col-sm-10"> <!-- Колонка для поля ввода -->
+    <input type="password" class="form-control" id="user-pass" name="user-pass"> <!-- Поле ввода пароля -->
+    </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button> <!-- Кнопка для отправки формы -->
     </form>
     </div>
-{% endblock %}
+{% endblock %} <!-- Конец блока контента -->

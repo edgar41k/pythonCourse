@@ -1,7 +1,24 @@
-{% extends 'base.html' %}
-{% block title %}
-    Flask blog homepage
+{% extends 'base.html' %} <!-- Расширяем базовый шаблон 'base.html' -->
+{% block title %} <!-- Блок для установки заголовка страницы -->
+    Flask blog homepage <!-- Заголовок страницы -->
 {% endblock %}
-{% block content %}
-    <h1>Welcome to Flask blog project.</h1>
-{% endblock %}
+{% block content %} <!-- Начало блока контента страницы -->
+<div class="container"> <!-- Контейнер для содержимого страницы -->
+    {% if posts %} <!-- Проверяем, есть ли посты -->
+    {% for post in posts %} <!-- Перебираем каждый пост -->
+        <div class="card my-3"> <!-- Карточка для поста с отступом -->
+        <div class="card-body"> <!-- Тело карточки -->
+        <h5 class="card-title">{{ post.title }}</h5> <!-- Заголовок поста -->
+        <p class="card-text">{{ post.content }}</p> <!-- Текст поста -->
+        <h6 class="card-subtitle mb-2 text-body-secondary"> <!-- Подзаголовок с информацией о посте -->
+            {{ post.owner }} posted: {{ post.date_added.strftime('%d.%m.%Y %H:%M') }} <!-- Имя владельца и дата добавления поста -->
+        </h6>
+        {% if post.owner == session['login'] %} <!-- Проверяем, является ли текущий владелец поста пользователем в сессии -->
+            <a href="/delete_post/{{ post._id }}" class="btn btn-sm btn-danger">delete</a> <!-- Кнопка для удаления поста -->
+    {% endif %}
+        </div>
+        </div>
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock %} <!-- Конец блока контента -->

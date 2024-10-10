@@ -1,19 +1,31 @@
-{% extends 'base.html' %}
-{% block title %}
-    User: {{ login }}
+{% extends 'base.html' %} <!-- Расширяем базовый шаблон 'base.html' -->
+{% block title %} <!-- Блок для установки заголовка страницы -->
+    User: {{ login }} <!-- Заголовок страницы с именем пользователя -->
 {% endblock %}
-{% block content %}
-    <div class="container mt-5">
-    <h1>Hello {{ login }}.</h1>
-    <form class="py-5" method="post">
-        <div class="row mb-3">
-        <label for="user-email" class="col-sm-2 col-form-label">Email</label>
-        <div class="col-sm-10">
-            <input type="email" class="form-control" id="user-email" name="user-email" value="{{email}}">
+{% block content %} <!-- Начало блока контента страницы -->
+    <div class="container mt-5"> <!-- Контейнер с верхним отступом -->
+    <form class="py-5" method="post"> <!-- Форма с отступом по вертикали для редактирования профиля -->
+    <div class="row"> <!-- Начало строки для отображения аватара и приветствия -->
+        <div class="col-2"> <!-- Колонка для аватара -->
+        {% if avatar %} <!-- Проверяем, есть ли у пользователя аватар -->
+        <img src="{{ url_for('static', filename='upload/' + avatar) }}" alt="avatar" width="150px" height="150px"> <!-- Если аватар есть, отображаем его -->
+        {% else %} <!-- Если аватара нет -->
+        <img src="{{ url_for('static', filename='noavatar.png') }}" alt="avatar" width="150px" height="150px"> <!-- Отображаем изображение по умолчанию -->
+        {% endif %}
+        </div>
+        <div class="col-10"> <!-- Колонка для приветственного сообщения -->
+        <h1>Hello <span class="text-info">{{ login }}</span>.</h1> <!-- Приветствие с именем пользователя -->
         </div>
         </div>
-        <button type="submit" class="btn btn-primary">Save</button>
-        <a href="/delete_user" class="btn btn-danger">Delete</a>
+        <div class="row mb-3"> <!-- Строка для ввода электронной почты с нижним отступом -->
+        <label for="user-email" class="col-sm-2 col-form-label">Email</label> <!-- Метка для поля ввода электронной почты -->
+        <div class="col-sm-10"> <!-- Колонка для поля ввода -->
+        <input type="email" class="form-control" id="user-email" name="user-email" value="{{email}}"> <!-- Поле для ввода электронной почты с предустановленным значением -->
+        </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button> <!-- Кнопка для сохранения изменений -->
+        <a href="/delete_user" class="btn btn-danger">Delete user</a> <!-- Ссылка для удаления пользователя -->
+        <a href="/upload_avatar" class="btn btn-primary">Upload avatar</a> <!-- Ссылка для загрузки нового аватара -->
     </form>
     </div>
-{% endblock %}
+{% endblock %} <!-- Конец блока контента -->

@@ -1,0 +1,15 @@
+{% extends 'base.html' %} <!-- Расширяем базовый шаблон 'base.html' -->
+{% block title %} <!-- Блок для установки заголовка страницы -->
+    Flask blog homepage <!-- Заголовок страницы для главной страницы блога Flask -->
+{% endblock %}
+{% block content %} <!-- Начало блока контента страницы -->
+<div class="container"> <!-- Контейнер для содержимого, чтобы применить Bootstrap стили -->
+    <form action="{{ url_for('upload_avatar') }}" method="post" enctype="multipart/form-data"> <!-- Форма для загрузки аватара -->
+    <div class="mb-3"> <!-- Контейнер с отступом внизу -->
+    <label for="avatar" class="form-label">Upload avatar</label> <!-- Метка для поля выбора файла -->
+    <input class="form-control" type="file" id="avatar" name="avatar" accept=".jpg,.jpeg,.png,.gif"> <!-- Поле для выбора файла аватара, поддерживающее указанные форматы изображений -->
+    </div>
+    <input type="submit" value="Upload" class="btn btn-primary"> <!-- Кнопка для отправки формы загрузки -->
+    </form>
+</div>
+{% endblock %} <!-- Конец блока контента -->
